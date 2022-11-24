@@ -4,16 +4,16 @@ from .models import Item, Order, Discount, Tax, Currency
 
 class OrderAdmin(admin.ModelAdmin):
     save_on_top = True
-    list_display = ('id', 'order_price', 'discount', 'tax', )
+    list_display = ('id', 'order_price', 'discount', 'tax', 'currency',)
     list_display_links = ('id', 'order_price',)
     # пагинация - по 10 записей на страницу
     list_per_page = 10
-    # сколько можно максимально показать при нажатии кнопкт show all
+    # сколько можно максимально показать при нажатии кнопки show all
     list_max_show_all = 100
     # how to show empty values
     empty_value_display = '-empty-'
     # То что будет видно при переходе в каждую запись
-    fields = ('id', 'item', 'order_price', 'discount', 'tax', )
+    fields = ('id', 'item', 'order_price', 'discount', 'tax',  'currency',)
     readonly_fields = ('id',)
 
 
@@ -36,11 +36,11 @@ class DiscountAdmin(admin.ModelAdmin):
 
 
 class ItemAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name',  'price', 'currency')
+    list_display = ('id', 'name',  'price',)
     list_display_links = ('name',)
     list_per_page = 10
     empty_value_display = '-empty-'
-    fields = ('id', 'name', 'description', 'price', 'currency')
+    fields = ('id', 'name', 'description', 'price', )
     readonly_fields = ('id',)
 
 
